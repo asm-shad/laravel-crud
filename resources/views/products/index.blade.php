@@ -54,6 +54,13 @@
 </head>
 <body>
     <h1>Product List</h1>
+    <div>
+        @if (session()->has('success'))
+            <div>
+                {{session('session')}}
+            </div>
+        @endif
+    </div>
     <div class="container">
         <table>
             <tr>
@@ -62,6 +69,7 @@
                 <th>Qty</th>
                 <th>Price</th>
                 <th>Description</th>
+                <th>Edit</th>
             </tr>
             @foreach ($products as $product)
                 <tr>
@@ -70,6 +78,9 @@
                     <td>{{ $product->qty }}</td>
                     <td>${{ number_format($product->price, 2) }}</td>
                     <td>{{ $product->description }}</td>
+                    <td>
+                        <a href="{{route('product.edit', ['product' => $product])}}">Edit</a>
+                    </td>
                 </tr>
             @endforeach
         </table>

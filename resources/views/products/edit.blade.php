@@ -71,28 +71,28 @@
             
         @endif
     </div>
-    <form method="post" action="{{route('product.store')}}">
+    <form method="post" action="{{route('product.update', ['product' => $product])}}">
         @csrf
-        @method("post")
-        <h1>Create a Product</h1>
+        @method("put")
+        <h1>Edit a Product</h1>
         <div>
             <label for="name">Name:</label>
-            <input type="text" id="name" name="name" placeholder="Enter Name">
+            <input type="text" id="name" name="name" placeholder="Enter Name" value="{{$product->name}}">
         </div>
         <div>
             <label for="qty">Qty:</label>
-            <input type="text" id="qty" name="qty" placeholder="Enter Quantity">
+            <input type="text" id="qty" name="qty" placeholder="Enter Quantity"  value="{{$product->qty}}">
         </div>
         <div>
             <label for="price">Price:</label>
-            <input type="text" id="price" name="price" placeholder="Enter Price">
+            <input type="text" id="price" name="price" placeholder="Enter Price"  value="{{$product->price}}">
         </div>
         <div>
             <label for="description">Description:</label>
-            <input type="text" id="description" name="description" placeholder="Enter Description">
+            <input type="text" id="description" name="description" placeholder="Enter Description"  value="{{$product->description}}">
         </div>
         <div>
-            <input type="submit" value="Save a new Product">
+            <input type="submit" value="Update a new Product">
         </div>
     </form>
 </body>
