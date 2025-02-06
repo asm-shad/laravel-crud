@@ -61,6 +61,16 @@
     </style>
 </head>
 <body>
+    <div>
+        @if ($errors->any())
+        <ul>
+            @foreach ($error->all() as $error)
+                <li>{{$error}}</li>            
+            @endforeach
+        </ul>
+            
+        @endif
+    </div>
     <form method="post" action="{{route('product.store')}}">
         @csrf
         @method("post")
