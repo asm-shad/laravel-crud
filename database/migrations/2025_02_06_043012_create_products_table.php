@@ -18,7 +18,7 @@ class CreateProductsTable extends Migration
             $table->string("name");
             $table->integer('qty');
             $table->decimal('price');
-            $table->text('description');
+            $table->text('description')->default('No description available');
             $table->timestamps();
         });
     }
